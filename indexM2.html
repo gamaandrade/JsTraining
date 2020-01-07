@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Java Script Training</title>
+    </head>
+    <body>
+        
+        <script>
+            // --- Exercicio 1 ---
+            console.log("-- Exercicio 1 ---");
+            var endereco = {
+                rua:    "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "Centro",
+                cidade: "São Paulo",
+                uf:     "SP"
+            };
+            console.log("O usuário mora em" + 
+                        endereco.cidade + "/" + 
+                        endereco.uf +
+                        ", no bairro " +
+                        endereco.bairro +
+                        ", na rua " +
+                        endereco.rua +
+                        " com nº " +
+                        endereco.numero + ".");
+            
+            // --- Exercício 2 ---
+            console.log("-- Exercicio 2 ---");
+            function pares(x, y) {
+                for( var i=x; i<=y; i++ ){
+                    if( (i % 2) === 0 ){
+                        console.log(i);
+                    }
+                }
+            }
+            pares(32, 321);
+
+            // --- Exercício 3 ---
+            console.log("-- Exercicio 3 ---");
+            function temHabilidade(skills) {
+                if ( skills.indexOf("Javascript") > -1 ) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            var skills = ["Javascript", "ReactJS", "React Native"];
+            var resultado = temHabilidade(skills); // true ou false
+            console.log(resultado);
+
+            // --- Exercício 4 ---
+            console.log("-- Exercicio 4 ---");
+            function experiencia(anos) {
+                if( anos >= 0 && anos <= 1 ) {
+                    console.log("Iniciante");
+                } 
+                else if( anos >= 2 && anos <= 3 ) {
+                    console.log("Intermediário");
+                }
+                else if( anos >= 4 && anos <= 6 ) {
+                    console.log("Avançado");
+                }
+                else if( anos >= 7 ) {
+                    console.log("Jedi Master");
+                }
+                else {
+                    console.log("entrada inválida");
+                }
+            }
+            var anosEstudo = 5;
+            experiencia(anosEstudo);
+
+            // --- Exercício 5 ---
+            console.log("-- Exercicio 5 ---");
+            function mostraHabilidades(usuarios) {
+                for( var usuario of usuarios ) {
+                    console.log("O " + usuario.nome + 
+                                " possui as habilidades: " + 
+                                usuario.habilidades.join(', '));
+                }
+            }
+            var usuarios = [
+                {
+                    nome: "Diego",
+                    habilidades: ["Javascript", "ReactJS", "Redux"]
+                },
+                {
+                    nome: "Gabriel",
+                    habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+            mostraHabilidades(usuarios);
+
+        </script>
+    </body>
+</html>
