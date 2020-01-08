@@ -3,23 +3,60 @@
         <title>Java Script Training</title>
     </head>
     <body>
-        <div id="app">
-            <input id="nome">
+        <div id="appbox">
+            <button class="addButton">Add box</button>
+        </div>
+
+        <div><ul></ul></div>
+
+        <div id="appnomes">
+            <input type="text" name="nome">
+            <button onClick="addName()">Add name</button>
         </div>
         
         <script>
-            var linkElement = document.createElement('a');
-            linkElement.setAttribute('href', 'http://ppmtim');
+            // --- Exercicios 1 e 2 ---            
+            var btnBoxElement = document.querySelector('button.addButton');
+            var boxContainerElement = document.querySelector('#appbox');
+            
+            btnBoxElement.onclick = function() {
+                var divElement = document.createElement('div');
+                divElement.className = 'box';
+                divElement.onmouseover = function() {
+                    var letters = "0123456789ABCDEF";
+                    var color = "#";
+                    for (var i = 0; i < 6; i++) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    divElement.style.backgroundColor = color;
+                };
+                divElement.style.width = 100;
+                divElement.style.height = 100;
+                divElement.style.backgroundColor = '#f00';
 
-            var textElement = document.createTextNode('Acessar o PPM');
-            linkElement.appendChild(textElement);
+                boxContainerElement.appendChild(divElement);
+            }
 
-            var containerElement = document.querySelector('#app');
-            containerElement.appendChild(linkElement);
+            // --- Exercicio 3 --- 
+            var nameContainerElement = document.querySelector('#appnomes');
 
-            var inputElement = document.querySelector('#nome');
-            containerElement.removeChild(inputElement);
+            var nomes = ["Diego", "Gabriel", "Lucas"];
 
+            for (var nome of nomes) {
+                var ulElement = document.createElement('ul');
+                var txtElement = document.createTextNode(nome);
+                ulElement.appendChild(txtElement);
+                nameContainerElement.appendChild(ulElement);
+            }
+
+            function addName() {
+                var inputElement = document.querySelector('input[name=nome]');
+                var ulElement = document.createElement('ul');
+                var txtElement = document.createTextNode(inputElement.value);
+                ulElement.appendChild(txtElement);
+                nameContainerElement.appendChild(ulElement);
+                inputElement.value = "";
+            }          
             
         </script>
     </body>
